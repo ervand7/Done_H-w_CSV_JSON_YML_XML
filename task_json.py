@@ -23,7 +23,7 @@ def split_and_filter_words(conditional_file_path, min_word_len):
 
 
 
-def sow_top_10(conditional_file_path, min_word_len, top_integer):
+def show_top_10(conditional_file_path, min_word_len, top_integer):
     a = split_and_filter_words(file_path, min_word_len)
 
     dct_with_amount = (dict(Counter(a)))
@@ -36,4 +36,4 @@ def sow_top_10(conditional_file_path, min_word_len, top_integer):
 
 
 
-sow_top_10(file_path, 6, 10)
+show_top_10(file_path, 6, 10)
