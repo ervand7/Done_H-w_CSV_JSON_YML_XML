@@ -3,9 +3,10 @@ from collections import Counter
 import os
 
 file_path = os.path.join(os.getcwd(), 'newsafr.json')
+user_input = int(input('Enter min. count of letters: '))
 
 
-def split_and_filter_words(min_word_len=6):
+def split_and_filter_words(min_word_len=user_input):
     with open(file_path) as f:
         json_data = json.load(f)
     description = json_data["rss"]["channel"]["items"]
@@ -20,7 +21,7 @@ def split_and_filter_words(min_word_len=6):
     return list_with_words_which_more_min_len
 
 
-def show_top(top_limit=10):
+def show_top_10(top_limit=10):
     dict_words_and_its_letters_count = dict(Counter(split_and_filter_words()))
     sorted_dict_words_and_its_letters_count = sorted(dict_words_and_its_letters_count.items(), key=lambda x: x[1],
                                                      reverse=True)
@@ -30,5 +31,5 @@ def show_top(top_limit=10):
 
 
 if __name__ == '__main__':
-    split_and_filter_words()
-    show_top()
+    show_top_10()
+
